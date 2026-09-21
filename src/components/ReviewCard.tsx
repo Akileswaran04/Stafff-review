@@ -3,8 +3,6 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion, type Variants } from "framer-motion";
 import type { Review } from "@/lib/types";
-import { formatDate } from "@/lib/stats";
-import RatingDots from "./RatingDots";
 
 export const cardVariants: Variants = {
   hidden: { opacity: 0, y: 24 },
@@ -15,26 +13,36 @@ export const reducedCardVariants: Variants = {
   show: { opacity: 1, transition: { duration: 0.3 } },
 };
 
+const CORNERS = ["left-[4.5px] top-[4.5px]", "right-[4.5px] top-[4.5px]", "bottom-[4.5px] left-[4.5px]", "bottom-[4.5px] right-[4.5px]"];
+
 /**
- * Flat panel, identical height on every card. Name, rating and date are always visible. With privacy mode on, only the comment
- * is blurred until you hover / focus the card. Click opens the full review. Touch screens have no
- * hover, so the comment is shown outright there.
+ * Playing-card / tarot tile with exactly two things on it: the review, and one word (its first
+ * tag) as the title banner. A fine brass frame with diamond corners sits inside the edge.
+ * Hover: the card pops up and tilts a hair (alternating direction) and flips to solid brass with a
+ * hard ivory shadow. With privacy mode on, the review is also blurred until hover / focus.
+ * Click opens the full review; touch screens skip hover. `featured` makes it a double-width lead card.
  */
 export default function ReviewCard({
-  review, variants, onOpen, privacy,
-}: { review: Review; variants: Variants; onOpen: (r: Review, trigger: HTMLElement) => void; privacy: boolean }) {
+  review, variants, onOpen, privacy, index, featured = false,
+}: {
+  review: Review; variants: Variants; onOpen: (r: Review, trigger: HTMLElement) => void;
+  privacy: boolean; index: number; featured?: boolean;
+}) {
   const reduce = useReducedMotion();
   const [canHover, setCanHover] = useState(true);
   const [hot, setHot] = useState(false);
   useEffect(() => setCanHover(window.matchMedia("(hover: hover)").matches), []);
   const revealed = !privacy || !canHover || hot;
+  const tilt = index % 2 ? 0.7 : -0.7;
+  const word = review.tags[0] ?? "Review";
 
   return (
     <motion.article
       variants={variants}
+      whileHover={reduce ? undefined : { y: -8, rotate: tilt, scale: 1.025, transition: { type: "spring", stiffness: 380, damping: 22 } }}
       role="button"
       tabIndex={0}
-      aria-label={`Open review by ${review.student_alias}, rated ${review.rating} out of 5`}
+      aria-label={`Open review by ${review.student_alias}`}
       onPointerEnter={(e) => e.pointerType === "mouse" && setHot(true)}
       onPointerLeave={() => setHot(false)}
       onFocus={() => setHot(true)}
@@ -43,39 +51,41 @@ export default function ReviewCard({
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(review, e.currentTarget); }
       }}
-      className="review-card relative flex cursor-pointer flex-col overflow-hidden rounded p-4 text-left"
+      className={`review-card group relative flex h-80 cursor-pointer flex-col rounded-sm p-5 text-center ${featured ? "col-span-2" : ""}`}
     >
-      <div className="flex items-start justify-between gap-2">
-        <h3 className="truncate font-display text-lg uppercase leading-none tracking-wide">{review.student_alias}</h3>
-        <RatingDots rating={review.rating} />
-      </div>
+      {/* fine inner frame with diamond corners */}
+      <span aria-hidden className="card-frame pointer-events-none absolute inset-2" />
+      {CORNERS.map((pos) => (
+        <span key={pos} aria-hidden className={`card-dia pointer-events-none absolute ${pos}`} />
+      ))}
 
-      {/* fixed three-line slot: every card ends up the same height whatever the review length */}
-      <div className="relative my-3 h-[4.1rem]">
+      {/* the review, centred */}
+      <div className="relative flex min-h-0 flex-1 items-center justify-center px-3 py-4">
         <motion.p
-          animate={{ filter: revealed ? "blur(0px)" : "blur(6px)", opacity: revealed ? 1 : 0.55 }}
+          animate={{ filter: revealed ? "blur(0px)" : "blur(7px)", opacity: revealed ? 1 : 0.5 }}
           transition={{ duration: reduce ? 0 : 0.3 }}
-          className="line-clamp-3 select-none text-sm font-medium leading-snug text-cream/90"
+          className={`select-none font-medium ${featured ? "line-clamp-6 text-[2rem] leading-[1.12]" : "line-clamp-8 text-[17px] leading-[1.35]"}`}
         >
           {review.comment || "No written comment."}
         </motion.p>
+
         {privacy && (
           <motion.span
             animate={{ opacity: revealed ? 0 : 1 }}
             transition={{ duration: reduce ? 0 : 0.2 }}
             aria-hidden
-            className="pointer-events-none absolute inset-0 grid place-items-center font-mono text-[10px] uppercase tracking-[0.22em] text-mute"
+            className="pointer-events-none absolute inset-0 grid place-items-center font-mono text-[10px] uppercase tracking-[0.22em] opacity-70"
           >
             Hover to reveal
           </motion.span>
         )}
       </div>
 
-      <div className="mt-auto flex items-center justify-between gap-2 border-t border-rule pt-3">
-        <time dateTime={review.created_at} className="font-mono text-[11px] leading-none tracking-id text-mute">{formatDate(review.created_at)}</time>
-        <span className="review-open rounded-sm px-2 py-[3px] text-[10px] font-bold uppercase leading-none tracking-wide">
-          Open <span aria-hidden>↗</span>
-        </span>
+      {/* title banner: one word between two rules */}
+      <div className="relative flex items-center gap-3 px-3 pb-3">
+        <span className="card-rule h-px flex-1" />
+        <span className="card-word truncate font-display text-lg uppercase leading-none tracking-[0.28em]">{word}</span>
+        <span className="card-rule h-px flex-1" />
       </div>
     </motion.article>
   );

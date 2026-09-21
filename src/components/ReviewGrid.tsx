@@ -61,10 +61,10 @@ export default function ReviewGrid({ reviews }: { reviews: Review[] }) {
         whileInView="show"
         viewport={{ once: true, amount: 0.08 }}
         variants={{ hidden: {}, show: { transition: { staggerChildren: 0.06 } } }}
-        className="grid grid-cols-2 gap-x-3 gap-y-5 sm:grid-cols-3 lg:grid-cols-4"
+        className="grid grid-cols-2 gap-x-4 gap-y-6 sm:grid-cols-3 lg:grid-cols-4"
       >
-        {sorted.map((r) => (
-          <ReviewCard key={r.id} review={r} variants={reduce ? reducedCardVariants : cardVariants} onOpen={openReview} privacy={privacy} />
+        {sorted.map((r, i) => (
+          <ReviewCard key={r.id} review={r} index={i} featured={i === 0} variants={reduce ? reducedCardVariants : cardVariants} onOpen={openReview} privacy={privacy} />
         ))}
       </motion.div>
 
