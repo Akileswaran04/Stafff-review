@@ -7,3 +7,5 @@ next-env.d.ts
 
 # One-time handout of plaintext staff login codes — generated locally, never committed.
 staff-login-codes*.txt
+
+.vercel
