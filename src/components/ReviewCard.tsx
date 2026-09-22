@@ -51,7 +51,7 @@ export default function ReviewCard({
       onKeyDown={(e) => {
         if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onOpen(review, e.currentTarget); }
       }}
-      className={`review-card group relative flex h-80 cursor-pointer flex-col rounded-sm p-5 text-center ${featured ? "col-span-2" : ""}`}
+      className={`review-card group relative flex h-80 cursor-pointer flex-col overflow-hidden rounded-sm p-5 text-center ${featured ? "col-span-2" : ""}`}
     >
       {/* fine inner frame with diamond corners */}
       <span aria-hidden className="card-frame pointer-events-none absolute inset-2" />
@@ -64,7 +64,7 @@ export default function ReviewCard({
         <motion.p
           animate={{ filter: revealed ? "blur(0px)" : "blur(7px)", opacity: revealed ? 1 : 0.5 }}
           transition={{ duration: reduce ? 0 : 0.3 }}
-          className={`select-none font-medium ${featured ? "line-clamp-6 text-[2rem] leading-[1.12]" : "line-clamp-8 text-[17px] leading-[1.35]"}`}
+          className={`select-none font-medium ${featured ? "line-clamp-4 text-xl leading-[1.2] sm:line-clamp-6 sm:text-[2rem] sm:leading-[1.12]" : "line-clamp-4 text-sm leading-snug sm:line-clamp-8 sm:text-[17px] sm:leading-[1.35]"}`}
         >
           {review.comment || "No written comment."}
         </motion.p>
@@ -84,7 +84,7 @@ export default function ReviewCard({
       {/* title banner: one word between two rules */}
       <div className="relative flex items-center gap-3 px-3 pb-3">
         <span className="card-rule h-px flex-1" />
-        <span className="card-word truncate font-display text-lg uppercase leading-none tracking-[0.28em]">{word}</span>
+        <span className="card-word min-w-0 truncate font-display text-base uppercase leading-none tracking-[0.1em] sm:text-lg sm:tracking-[0.28em]">{word}</span>
         <span className="card-rule h-px flex-1" />
       </div>
     </motion.article>
