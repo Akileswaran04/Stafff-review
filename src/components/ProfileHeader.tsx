@@ -32,7 +32,7 @@ export default function ProfileHeader({
         </div>
       </div>
 
-      <div className="relative mt-12 pb-16 sm:mt-16 sm:pb-24">
+      <div className="relative mt-12 pb-24 sm:mt-16 sm:pb-32">
         {/* softer speckle: the name must stay the highest-contrast thing on the page */}
         <h1 className="distress-soft font-display text-[clamp(3.25rem,12.5vw,10.5rem)] uppercase leading-[0.86]">{staff.name}</h1>
         {/* the flourish sits below-right of the name, clear of the letters */}
