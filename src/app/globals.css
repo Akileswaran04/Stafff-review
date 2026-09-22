@@ -71,6 +71,20 @@
     .review-card:hover .card-rule { background: rgb(18 19 26 / 0.5); }
     .review-card:hover .card-word { color: #12131a; }
   }
+
+  /* The opened-review "pop card": an actual thank-you greeting card, sage green on ivory paper —
+     a deliberate break from the ink/brass grid, since these reviews are literally thank-you notes. */
+  .thankyou-card { background: #f4f1e9; }
+  .ty-blob { background: #cddcc6; filter: blur(0.5px); }
+  .ty-close { background: #f4f1e9; color: #4a5d46; border: 1.5px solid #4a5d46; }
+  .ty-close:hover { background: #4a5d46; color: #f4f1e9; }
+  .ty-kicker { color: #5f7a5a; }
+  .ty-heading { color: #3f5239; }
+  .ty-ink { color: #33402f; }
+  .ty-mute { color: #6b7a63; }
+  .ty-signature { color: #4a5d46; }
+  .ty-rule { border-color: #d7ddca; }
+  .ty-tag { background: #e4ecdc; color: #4a5d46; }
 }
 
 @media (prefers-reduced-motion: reduce) {

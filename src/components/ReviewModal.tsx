@@ -3,14 +3,18 @@
 import { useEffect, useRef } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import type { Review } from "@/lib/types";
-import { formatDate, SENTIMENT_COLOR, sentimentOf } from "@/lib/stats";
+import { formatDate } from "@/lib/stats";
 import RatingDots from "./RatingDots";
+import { FloralSprig } from "./Decor";
 
-const LABEL = { positive: "Positive", neutral: "Neutral", attention: "Needs attention" } as const;
-const CORNERS = ["left-[7px] top-[7px]", "right-[7px] top-[7px]", "bottom-[7px] left-[7px]", "bottom-[7px] right-[7px]"];
-
-/** The opened card: same brass frame and title banner, with the full review and the details. */
-export default function ReviewModal({ review, onClose }: { review: Review | null; onClose: () => void }) {
+/**
+ * The "pop card": clicking a review blooms it open into an actual thank-you greeting card — sage
+ * green, an organic blob behind the heading, hand-drawn botanical corners, the review read as the
+ * letter itself. Same open/close mechanics as before (spring in, Escape/backdrop/close-box out).
+ */
+export default function ReviewModal({
+  review, staffName, onClose,
+}: { review: Review | null; staffName: string; onClose: () => void }) {
   const reduce = useReducedMotion();
   const closeBtn = useRef<HTMLButtonElement>(null);
 
@@ -27,8 +31,6 @@ export default function ReviewModal({ review, onClose }: { review: Review | null
     window.addEventListener("keydown", onKey);
     return () => { document.body.style.overflow = prev; window.removeEventListener("keydown", onKey); };
   }, [review, onClose]);
-
-  const s = review ? sentimentOf(review.rating) : "neutral";
 
   return (
     <AnimatePresence>
@@ -51,44 +53,49 @@ export default function ReviewModal({ review, onClose }: { review: Review | null
             animate={{ opacity: 1, y: 0, rotate: 0, scale: 1 }}
             exit={{ opacity: 0, y: reduce ? 0 : 20, scale: reduce ? 1 : 0.98 }}
             transition={reduce ? { duration: 0.15 } : { type: "spring", stiffness: 300, damping: 28 }}
-            className="relative my-auto w-full max-w-2xl rounded-sm border border-rule bg-panel p-10 text-center shadow-[8px_8px_0_#D4A574] sm:p-14"
+            className="thankyou-card relative my-auto w-full max-w-xl overflow-hidden rounded-md p-9 shadow-[0_24px_60px_-15px_rgba(0,0,0,0.55)] sm:p-12"
           >
-            <span aria-hidden className="pointer-events-none absolute inset-3 border border-gold/45" />
-            {CORNERS.map((pos) => (
-              <span key={pos} aria-hidden className={`pointer-events-none absolute h-[7px] w-[7px] rotate-45 bg-gold ${pos}`} />
-            ))}
+            {/* organic blob behind the heading, and botanical sprigs in opposite corners */}
+            <span aria-hidden className="ty-blob pointer-events-none absolute -left-16 -top-20 h-64 w-64 rounded-[42%_58%_65%_35%/45%_40%_60%_55%]" />
+            <FloralSprig className="pointer-events-none absolute -left-3 -top-3 h-24 w-24 opacity-90 sm:h-28 sm:w-28" />
+            <FloralSprig flip className="pointer-events-none absolute -bottom-3 -right-3 h-24 w-24 opacity-90 sm:h-28 sm:w-28" />
 
             {/* the close box */}
             <button
               ref={closeBtn}
               onClick={onClose}
-              aria-label="Close review"
-              className="absolute right-6 top-6 grid h-11 w-11 place-items-center rounded-sm border border-cream/40 text-cream transition hover:border-gold hover:bg-gold hover:text-midnight"
+              aria-label="Close card"
+              className="ty-close absolute right-4 top-4 z-10 grid h-10 w-10 place-items-center rounded-full transition"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="square" aria-hidden>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.25" strokeLinecap="round" aria-hidden>
                 <path d="M4 4l16 16M20 4L4 20" />
               </svg>
             </button>
 
-            <p className="flex items-center justify-center gap-2 font-mono text-xs uppercase tracking-[0.2em] text-mute">
-              <span className="h-2 w-2" style={{ background: SENTIMENT_COLOR[s] }} />
-              {LABEL[s]}
-            </p>
+            <div className="relative">
+              <p className="ty-kicker text-center font-mono text-[11px] uppercase tracking-[0.3em]">Teachers&rsquo; Day</p>
+              <h2 id="review-title" className="ty-heading mt-2 text-center font-script text-6xl leading-none sm:text-7xl">Thank you!</h2>
 
-            <blockquote className="mt-6 text-2xl font-medium leading-snug text-cream sm:text-3xl">
-              {review.comment || <span className="text-mute">No written comment.</span>}
-            </blockquote>
+              <p className="ty-ink mt-8 text-sm sm:text-base">Dear {staffName},</p>
+              <blockquote className="ty-ink mt-3 text-lg leading-relaxed sm:text-xl">
+                {review.comment || <span className="ty-mute">No written comment.</span>}
+              </blockquote>
 
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-x-5 gap-y-2">
-              <span className="font-display text-lg uppercase tracking-wide text-cream">{review.student_alias}</span>
-              <RatingDots rating={review.rating} size={10} />
-              <time dateTime={review.created_at} className="font-mono text-xs tracking-id text-mute">{formatDate(review.created_at)}</time>
-            </div>
+              <p className="ty-mute mt-6 text-sm sm:text-base">With warmest regards,</p>
+              <p className="ty-signature -mt-1 font-script text-4xl leading-none sm:text-5xl">{review.student_alias}</p>
 
-            <div className="mt-8 flex items-center gap-3">
-              <span className="h-px flex-1 bg-gold/50" />
-              <h2 id="review-title" className="truncate font-display text-xl uppercase leading-none tracking-[0.28em] text-gold">{review.tags[0] ?? "Review"}</h2>
-              <span className="h-px flex-1 bg-gold/50" />
+              <div className="ty-rule mt-8 flex flex-wrap items-center justify-between gap-3 border-t pt-5">
+                <RatingDots rating={review.rating} size={9} />
+                <time dateTime={review.created_at} className="ty-mute font-mono text-xs tracking-id">{formatDate(review.created_at)}</time>
+              </div>
+
+              {review.tags.length > 0 && (
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {review.tags.map((t) => (
+                    <span key={t} className="ty-tag rounded-full px-3 py-1 text-xs font-medium">{t}</span>
+                  ))}
+                </div>
+              )}
             </div>
           </motion.div>
         </motion.div>

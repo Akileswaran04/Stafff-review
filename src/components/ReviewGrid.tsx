@@ -7,7 +7,7 @@ import ReviewCard, { cardVariants, reducedCardVariants } from "./ReviewCard";
 import ReviewModal from "./ReviewModal";
 import { Swoosh } from "./Decor";
 
-export default function ReviewGrid({ reviews }: { reviews: Review[] }) {
+export default function ReviewGrid({ reviews, staffName }: { reviews: Review[]; staffName: string }) {
   const reduce = useReducedMotion();
   const [open, setOpen] = useState<Review | null>(null);
   const [privacy, setPrivacy] = useState(false); // comments are visible on load; blur is opt-in
@@ -68,7 +68,7 @@ export default function ReviewGrid({ reviews }: { reviews: Review[] }) {
         ))}
       </motion.div>
 
-      <ReviewModal review={open} onClose={close} />
+      <ReviewModal review={open} staffName={staffName} onClose={close} />
     </section>
   );
 }

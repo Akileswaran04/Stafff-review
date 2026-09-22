@@ -43,3 +43,41 @@ export function Swoosh({ className = "", color = "#D4A574", strokeWidth = 3 }: {
     </svg>
   );
 }
+
+/**
+ * Thin-line botanical sprig — a stem with a few leaves and one open flower, in the spirit of a
+ * hand-drawn greeting-card corner spray. `flip` mirrors it for the opposite corner.
+ */
+export function FloralSprig({ className = "", color = "#4A5D46", flip = false }: { className?: string; color?: string; flip?: boolean }) {
+  return (
+    <svg
+      viewBox="0 0 160 160"
+      fill="none"
+      stroke={color}
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      aria-hidden
+      className={className}
+      style={flip ? { transform: "rotate(180deg)" } : undefined}
+    >
+      {/* stem */}
+      <path d="M8 8C34 26 46 46 54 74S70 128 100 150" />
+      {/* leaves along the stem */}
+      <path d="M22 20C34 16 42 22 44 32C32 34 22 30 22 20Z" />
+      <path d="M38 44C50 38 60 42 64 52C50 56 40 54 38 44Z" />
+      <path d="M56 78C68 72 78 76 82 86C68 90 58 88 56 78Z" />
+      <path d="M70 112C82 106 92 110 96 120C82 124 72 122 70 112Z" />
+      {/* open flower at the tip */}
+      <g transform="translate(112 138)">
+        <circle r="4.5" />
+        <path d="M0 -4.5C-9 -12 -9 -22 0 -22C9 -22 9 -12 0 -4.5Z" />
+        <path d="M4.5 0C12 -9 22 -9 22 0C22 9 12 9 4.5 0Z" />
+        <path d="M0 4.5C9 12 9 22 0 22C-9 22 -9 12 0 4.5Z" />
+        <path d="M-4.5 0C-12 9 -22 9 -22 0C-22 -9 -12 -9 -4.5 0Z" />
+      </g>
+      <circle cx="26" cy="20" r="1.6" fill={color} stroke="none" />
+      <circle cx="46" cy="46" r="1.6" fill={color} stroke="none" />
+    </svg>
+  );
+}

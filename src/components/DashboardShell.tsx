@@ -30,7 +30,7 @@ export default function DashboardShell({ staff, reviews }: { staff: Staff; revie
   return (
     <div className="relative min-h-dvh overflow-hidden bg-midnight text-cream">
       <ProfileHeader staff={staff} count={reviews.length} onLogout={logout} leaving={leaving} />
-      {reviews.length === 0 ? <EmptyState /> : <ReviewGrid reviews={reviews} />}
+      {reviews.length === 0 ? <EmptyState /> : <ReviewGrid reviews={reviews} staffName={staff.name} />}
 
       <footer className="relative mt-8 h-56 overflow-hidden">
         <div className="pointer-events-none absolute -bottom-4 -right-10 w-[60vw] max-w-[520px]">
