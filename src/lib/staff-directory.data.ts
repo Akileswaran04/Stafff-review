@@ -23,11 +23,107 @@ export interface ReviewSeed {
 }
 
 export const STAFF: StaffCredential[] = [
-  { id: "DIST-M8UP", name: "Dr. P. Yogesh", dept: "Information Science & Technology", avatar_url: null, salt: "5455c5af6dee88bb11b374a150c02e6e", hash: "3106c0d28f926822ebd029eef6214145b68748c53c47515a7f40c67ddfb1544504cbc11f12a788c93d97a18acd573c3d4708a2e8e11af0c119d653f6251af79d" },
+  { id: "DIST-YTDQ", name: "Dr. P. Yogesh", dept: "Information Science & Technology", avatar_url: null, salt: "4f8672a2a9fa080b0d42ffb55d1984b2", hash: "d0e5046f002ba244046c77fa519821deb3528fa68f27757b6480fb086a918aefeb8a2b6eb507f08b74f6ced74f5772e3475c859bc6b71b5d0b4f592818f8bce1" },
+  { id: "DIST-NYGX", name: "Dr. S. Sridhar", dept: "Information Science & Technology", avatar_url: null, salt: "4a7646c9f6617e778e76ae882958a9ba", hash: "59b71b76a91de23c68495c340cea58a3cc7b511f1e2a04cb5de5f7901e40657b584cac7197e930faaa66afd404566880f73adee3210a6af4c9115444025d4a5b" },
+  { id: "DIST-PSSK", name: "Dr. M. Vijayalakshmi", dept: "Information Science & Technology", avatar_url: null, salt: "6327584e4f5bd7bb5c09d77d18800742", hash: "476d11e04dfad8fef7102265d69138c3e135b3aa5489fa371dfc9b1f25f81f214a15ea26e37ff1a542e512867cc21799b2d4e8a3683cb10638ba6b4e5b0cf347" },
+  { id: "DIST-YWY6", name: "Dr. P. Varalakshmi", dept: "Information Science & Technology", avatar_url: null, salt: "ba7aebeb21af8be596f5dd3ead147d31", hash: "33ba50d80ba9536c567483aef827fad26728c923095389323e007e5d9a03ec501c86828886c396da43f555a397f455b719ec6caf52e55e6456d070c1fc04b443" },
+  { id: "DIST-H8AJ", name: "Dr. T. Mala", dept: "Information Science & Technology", avatar_url: null, salt: "69243b9425fa956e5d55a2663491b6e9", hash: "d94e0703f31e33fd8695fa444a9f9cbc647e4446e21a21d0a2bfbc24c5f332fe0f727c2bc9a1a2d187b1d5894f3ef8c5327866faaad84664617c9b76f886461b" },
+  { id: "DIST-4CN6", name: "Dr. S. Sendhil Kumar", dept: "Information Science & Technology", avatar_url: null, salt: "ebfc2e29632d17c67b957be68309c0aa", hash: "b2cbe80684e66cec026c5333fabd64b808a5bc37f18c8aad53ab8021202435f00b9fadbc8f7993489368fcbf778c05ebc53b6cfa310be4eadeedc66691d5b599" },
+  { id: "DIST-8AAR", name: "Dr. Abirami Murugappan", dept: "Information Science & Technology", avatar_url: null, salt: "ca8798bd38ba97b2044c00b20baaaf2c", hash: "041d79921ea34aa17015f579003be9b45bdd7dc50d8b45e961e1c0420447ef4471fe48a1f025cd11bec56d3063dae007c9cf47096eeb9f99fb187b0b3f00edd7" },
+  { id: "DIST-JMVT", name: "Dr. K. Kulothungan", dept: "Information Science & Technology", avatar_url: null, salt: "17a9328daab88b7acc55d3dceb87aa63", hash: "be14cf4abca6785e02d48dd3f37228aedb5750a6f06af6f2db4f2eb3923bb780883d86ab5d0bb797b8241a7383f7d8e3ba89af46649b080219ad6f769afc96b0" },
+  { id: "DIST-PXX5", name: "Dr. N. Thangaraj", dept: "Information Science & Technology", avatar_url: null, salt: "f72e60c3867d62d108f226ad05be6877", hash: "d7923081336704610475edd61b3ad2c61ae73c86d352a6a622f3e02d89c7eaa78c097e795ab3c0b36566fdb70441687341ba7d5270184de57aa60610ef8648f0" },
+  { id: "DIST-DNFM", name: "Dr. K. Indra Gandhi", dept: "Information Science & Technology", avatar_url: null, salt: "0748317c59bc09c376bbdc0607af40d1", hash: "ca91f1e8a5c36066a908660ef8508a2517d098b4539740352942cdab5315ad21cd6e54e9beeb91a92e651a484fdf67524d43532305e24eab1dad5a62bcc63844" },
+  { id: "DIST-8KDR", name: "Dr. E. Uma", dept: "Information Science & Technology", avatar_url: null, salt: "8f8d9de0f35819c44a9d01818b09da4d", hash: "17a6e10063fcd2f73681386d85b9d6dd82baf1478a49771f44583c7065994b36a662953b44e6c3e5393ed553383ad050f41f86003e272fc86ffdf2d9c67a8aa7" },
+  { id: "DIST-NKE7", name: "Dr. S. Bama", dept: "Information Science & Technology", avatar_url: null, salt: "0eb75a0017c9e26072c38e0cd94dd51b", hash: "99f70622904310c3abc2e1d3b05788b948212207a7acabb1538810baa80eb60c047e9c324fe90cd575ec17891384cf86b0317b61ddf77121be2989ca7eec8bb4" },
+  { id: "DIST-CPF8", name: "Dr. P. Geetha", dept: "Information Science & Technology", avatar_url: null, salt: "66810e9e57b84231af5d4a8a04b8ea0b", hash: "bae337c1a42b9b66baeacc71fc6e90d64337b6634d46d6aaaa4291cdd949765afe014b10635fac443763d054d3f408d3e52a592e74829f597715322b8ea22de8" },
+  { id: "DIST-KVR2", name: "Dr. K. Vidya", dept: "Information Science & Technology", avatar_url: null, salt: "9a5f0aae075662439e51a1171f4b9015", hash: "d6d3f9e8615133be74e59bb2d1b877d9be87cc603d8b41e243e74848a890caab32e7677a4d8bacb92ebdda96fc9e55332c0a2793aa72ef7b9f8793dd156c4eb2" },
+  { id: "DIST-MCVU", name: "Dr. Selvi Ravindran", dept: "Information Science & Technology", avatar_url: null, salt: "a854f192a8e64ec28c9185dc1da6c690", hash: "1f50cd6baedcad9e103b4c87e89a8a552da9a0b92962e53d29a2311b4c10d971636403898dad3dacb5f5cb44b30215f6610e64b9ae384a16082f8964eb6669b4" },
+  { id: "DIST-5Z7K", name: "Dr. G. Geetha", dept: "Information Science & Technology", avatar_url: null, salt: "e5a87399575605474a3d09ba1a46e4a9", hash: "9672e2bcc689cd5cfd6eaa4e853c0033b4ea18120ec8e4454df59e76eaca972124511f87dd67629732051a956789acecdeee958d4d07e742d718d40cb367113c" },
+  { id: "DIST-F7TQ", name: "Dr. K. Manimala", dept: "Information Science & Technology", avatar_url: null, salt: "6a4892c127979ecc96ed0f5b7f47fa12", hash: "be7fa24f104742dbf7708ac2753ecf400b5c9ee12ada6c5213221aa6ddb93ac84a60a8471df758c4e0a1794c5b5a9f03e4995197df0973a00834ae09f10cc78d" },
+  { id: "DIST-XBSB", name: "Dr. D. Sangeetha", dept: "Information Science & Technology", avatar_url: null, salt: "4663ecb2949303dee273399b2810b761", hash: "361f631778580e9a98a3134bf20d74f202d5bbde2243e7e3fa0092918cdbe0459867295a565079ee045c897d7341ff787ee3d21405091c8980580a08fe609e6b" },
+  { id: "DIST-WFKQ", name: "Dr. K. Arul Deepa", dept: "Information Science & Technology", avatar_url: null, salt: "b9d09945ab72e45d677bf117e61d2d85", hash: "48833b7d13a374e4fe52389915f5add92619a1bced8866c7e5710eb91f9ae6760a12ae786437279ef8ccf4ccb50768d393f1e24c954eeab6f0e4c0c88c2a00f2" },
+  { id: "DIST-GM2Z", name: "Dr. M. Deivamani", dept: "Information Science & Technology", avatar_url: null, salt: "4d824ecc8cff6951755d17617545c431", hash: "8fdce3a29a9c1db34d971c8d151995a5397eea1c402dfcb9e272320633622f94deba179eef79b80d02c5edbb0c47ace78eeee20ee6a3388f2f293b1132555fde" },
+  { id: "DIST-EQNK", name: "D. Narashiman", dept: "Information Science & Technology", avatar_url: null, salt: "6186259b90e46d527330138d590e924a", hash: "0edeae72617892870ac5f272454344c575d7324d5778d196118911d97da14f2277c0fd12f8b5338d33e61904f0015588bc51d4563d05b224f94fa1b746ecf4c6" },
+  { id: "DIST-U99W", name: "N. Anbarasi", dept: "Information Science & Technology", avatar_url: null, salt: "96d7277a5fd6e5484e983d300c5b7e12", hash: "65b1c7fcbf878645493c00090b7c5d8bfcc17e4f8f5d06be7f66e08dcd9a89254c2e824e9b9e1958384b45c007f32dc642084addff0dbfe2053acdd7fb85ca7b" },
 ];
 
 export const REVIEWS: Record<string, ReviewSeed[]> = {
-  "DIST-M8UP": [
+  "DIST-YTDQ": [
     { student_alias: "Anonymous student", rating: 5, comment: "Your lectures and interactions between those lectures make us knowledgeable in both technical and non-technical aspects of life.", tags: ["supportive"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-NYGX": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Your two hours of lectures will always give us a feel of sitting in an IIT lecture hall. We enjoy those unexpected scolding moments in the class.", tags: ["goat"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-PSSK": [
+    { student_alias: "Sanmitha", rating: 5, comment: "Her FYP reviews and tremendous questions 😂 - I would never forget!", tags: ["thug"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-YWY6": [
+    { student_alias: "Anonymous student", rating: 5, comment: "I was absent for asses1, I was approaching in fear Abt how to convey this & to ask reg reasses...But casually she said to write tmrw itself and she gave only 2 questions to me, Also she is very kind and patient in every answer.", tags: ["kindful"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "You made me to gain a lot of technical knowledge in this campus. I love those moments you talk with us like your one of the family member.", tags: ["caring"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-H8AJ": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Mam is honestly one of the calmest teachers we have, never rushes through anything and always explains till everyone gets it. Super caring too, like she actually checks on us and not just about studies. And ngl she's really generous with marks lol, never strict over small mistakes. Classes with her are just chill and stress-free, love that for us 😄", tags: ["friendly"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "She teaches DS very clearly, even though the subject can be challenging. She explains every concept and makes sure all students understand. She is very caring and approachable, clears our doubts patiently, and motivates us to stay focused.", tags: ["kindful","inspiring"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-4CN6": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Thanks for making us know and use our potential more", tags: ["thoughtful"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "thanks for guding us with your endless knowledge and helping us to seek the true potential sir", tags: ["inspiring"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-8AAR": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Making me to become a structured, detailed and faster notes taker with your rapid detailed lectures.", tags: ["caring"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "Making us to realise that we need to study more and improve more than just academics", tags: ["caring"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-JMVT": [
+    { student_alias: "Anonymous student", rating: 5, comment: "In my view, a teacher is not just someone who teaches the syllabus, but someone from whom students genuinely learn.", tags: ["up-to-date"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "Beyond learning for semester exams, you made us to learn a lot in IoT and Crypto by encouraging us to practically gain knowledge on it.", tags: ["visionary"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-PXX5": [
+    { student_alias: "Anonymous student", rating: 5, comment: "A teacher who not only teaches syllabus but also a person who cares his students as friends", tags: ["friendly"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "On my personal opinion, sir is one of the teachers who takes clases in entertaining way not just boring theory", tags: ["student-friendly"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-DNFM": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Tankyou for your ability to teach with patients and sharing your endless knowledge with us", tags: ["inspiring"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-8KDR": [
+    { student_alias: "Anonymous student", rating: 5, comment: "I would like to express my sincere gratitude for your dedication and clarity in teaching. Your well-structured lectures and willingness to address student queries have made a meaningful difference in my learning experience. Thank you for your guidance and support.", tags: ["inspiring"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-NKE7": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Her Teaching style is great", tags: ["inspiring"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "Goated staff in goated college", tags: ["inspiring"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-CPF8": [
+    { student_alias: "Anonymous student", rating: 5, comment: "We always love your calm and composed classes and interactions with us when we feel bored or tired during the class.", tags: ["caring"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-KVR2": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Ma'am's classes are always calm and well-paced, and she explains concepts clearly without ever rushing. She's genuinely caring toward students and easy to approach with doubts or concerns. When it comes to marks, she's fair and generous, never harsh on small mistakes. One of the most comfortable and supportive teachers to learn under.", tags: ["caring"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-MCVU": [
+    { student_alias: "Anonymous student", rating: 5, comment: "A lot. We've spoken about various random stuffs starting from cricket matches till crunching life moments. When others are finding difficult to restrict students from cheating in lab exams, Mam would focus on question standards 😂. I really admire Mam's perspective in many things, she would make you understand things without making you feel awkward about it even if you had committed a mistake. Still cherishing the period when you served as ISTA treasurer, mam!", tags: ["student-friendly","inspiring","ista treasure"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-5Z7K": [
+    { student_alias: "Anonymous student", rating: 5, comment: "A student friendly staff member, who not just teaches lesson but also give life lesson and motivation when needed the most", tags: ["inspiring"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-F7TQ": [
+    { student_alias: "Anonymous student", rating: 5, comment: "“Students are my energy” — these are words I'll carry with me for the rest of my life. Not every teacher says it, and not every teacher makes their students feel it. But hearing those words from you made them truly special.", tags: ["friendly"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "Always brings positive energy into class and makes us smile atleast once in a class", tags: ["vibrant"], created_at: "2026-09-05T09:05:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "A very chill faculty who helps us learn new things in a relaxed and comfortable environment.", tags: ["inspiring","patient"], created_at: "2026-09-05T09:10:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "I just can't express in words how much I appreciate your love for your students and the efforts you put into uplifting their lives. They are truly beyond words. The life lessons you share, the entrepreneurship journeys you make us listen to, and everything else you do for us are just amazing. Thank you for choosing to be a part of our campus and, more importantly, for being such a wonderful teacher.", tags: ["empowering"], created_at: "2026-09-05T09:15:00.000Z" },
+  ],
+  "DIST-XBSB": [
+    { student_alias: "Anonymous student", rating: 5, comment: "You really have been a great advisor mam. Even though, as a teacher, you don't have to spend your teaching time giving life advice, you still shared so much with us in class. Those little pieces of advice have genuinely made a huge difference in my life. Thank you so much for everything mam", tags: ["inspirational"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-WFKQ": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Java class activity was so nice and interesting. Thank you for that and pls continue conducting activities ma'am", tags: ["joyful"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "One of my favourite moments was when you made Java concepts into fun activities instead of just theory! Acting, drawing, and explaining the concept while earning points made the whole class enjoy learning. Somehow, we were studying without feeling like we were studying! That was one of the most memorable and enjoyable classes. Thank you, Ma'am!", tags: ["friendly speech"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-GM2Z": [
+    { student_alias: "Anonymous student", rating: 5, comment: "More than a teacher, thanks for also being a mentor", tags: ["perfectionist"], created_at: "2026-09-05T09:00:00.000Z" },
+    { student_alias: "Anonymous student", rating: 5, comment: "The entire FYP period before placement felt like a big mountain in our heads. But you understood us, Sir, and helped us handle one pressure at a time. Thank you so much, for your understanding, guidance, and support throughout our journey. Truly grateful!", tags: ["inspiring","perfection"], created_at: "2026-09-05T09:05:00.000Z" },
+  ],
+  "DIST-EQNK": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Thank you for being a teacher who never judges students based on their marks. You genuinely want us to understand what we learn, gain real knowledge, and grow as individuals. You don't just want us to get good grades and leave; you want us to carry the lessons we learn into our lives and become better people. Your patience, understanding, and willingness to help every student learn truly make you a great teacher. Thank you for always encouraging us to learn beyond the textbooks and become better versions of ourselves.", tags: ["nurturing"], created_at: "2026-09-05T09:00:00.000Z" },
+  ],
+  "DIST-U99W": [
+    { student_alias: "Anonymous student", rating: 5, comment: "Thankyou for being a teachers who understand students needs and make grateful and helpful things to the students", tags: ["student-friendly"], created_at: "2026-09-05T09:00:00.000Z" },
   ],
 };
